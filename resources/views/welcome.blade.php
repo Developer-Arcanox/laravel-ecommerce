@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Home | Ecommerce')
+
 @section('content')
     <!-- Hero Carousel -->
     <section class="hero-section">
