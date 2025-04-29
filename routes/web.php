@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\UserAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::controller(AdminController::class)->prefix("/admin")->group(function () {
     Route::post("/category", "categoryAdd")->name("admin.category.add");
 });
 
-Route::controller(AdminController::class)->prefix("/admin/product")->group(function () {
-    Route::get("/add", "addProduct")->name("product.add");
+Route::controller(ProductController::class)->prefix("/admin/product")->group(function () {
+    Route::get("/add", "addProductForm")->name("product.add.form");
+    Route::post("/add", "addProduct")->name("product.add.submit");
 });
