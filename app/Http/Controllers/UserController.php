@@ -53,4 +53,8 @@ class UserController extends Controller
     public function user_dashboard () {
         return "User Account";
     }
+
+    public function cartIndex() {
+        return view("cart");
+    }
 }

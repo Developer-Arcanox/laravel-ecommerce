@@ -1,0 +1,17 @@
+body {
+    background-color: #f8f9fa;
+  }
+  .cart-item {
+    transition: box-shadow 0.3s ease;
+  }
+  .cart-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .product-img {
+    object-fit: cover;
+    height: 150px;
+  }
+  .qty-input {
+    width: 60px;
+    text-align: center;
+  }

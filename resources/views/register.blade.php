@@ -151,7 +151,7 @@
 
                     <div class="form-group">
                         <label for="phone" class="form-label">Phone Number (Optional)</label>
-                        <input type="tel" class="form-control" id="phone"
+                        <input type="tel" class="form-control" id="phone" name="phone"
                             placeholder="Enter your phone number" />
                         <small class="text-muted">For order updates and delivery notifications</small>
                     </div>
@@ -201,7 +201,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="assets/js/register.js"></script>
+    <script src="{{ asset('assets/js/register.js') }}"></script>
 </body>
 
 </html>
