@@ -112,36 +112,42 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card card h-100">
-                        <span class="badge badge-discount badge-pill py-2 px-3">-20%</span>
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                            class="product-img card-img-top" alt="Product 1" />
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">Sofa</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
+                @foreach ($products as $product)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card card h-100">
+                            {{-- <span class="badge badge-discount badge-pill py-2 px-3">-20%</span> --}}
+                            {{-- <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" --}}
+                            <img src="{{ asset('storage/productFeaturedImage/' . $product->productImage->where('featured', 'yes')->first()->imagePath) }}"
+                                class="product-img card-img-top" alt="Product 1" />
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Sofa</span>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <h5 class="card-title">Modern Velvet Sofa</h5>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="text-decoration-line-through text-muted me-2">$599</span>
-                                    <span class="fw-bold text-primary">$479</span>
+                                <h5 class="card-title">Modern Velvet Sofa</h5>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="text-decoration-line-through text-muted me-2">$599</span>
+                                        <span class="fw-bold text-primary">$479</span>
+                                    </div>
+                                    <form action="{{ route('cart.add') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="productID" value="{{ $product->id }}">
+                                        <input type="submit" class="btn btn-sm btn-outline-primary fas fa-plus"
+                                            value="+">
+                                    </form>
                                 </div>
-                                <button class="btn btn-sm btn-outline-primary">
-                                    <i class="fas fa-plus"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                @endforeach
+                {{-- <div class="col-lg-3 col-md-6">
                     <div class="product-card card h-100">
                         <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                             class="product-img card-img-top" alt="Product 2" />
@@ -223,7 +229,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="row mt-4">
                 <div class="col-12 text-center">

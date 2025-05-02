@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,9 @@ class ProductController extends Controller
 {
     public function addProductForm()
     {
-        return view("admin.add-product");
+        $category = Category::all();
+
+        return view("admin.add-product", compact("category"));
     }
 
     public function addProduct(Request $request)
@@ -24,16 +27,24 @@ class ProductController extends Controller
             "stock_quantity" => $request->quantity
         ]);
 
-        // $path = $request->file("featuredImageInput")->store("products", "private");
-
-        foreach ($request->file("img") as $img) {
-            echo var_dump($img);
-        }
+        $path = $request->file("featuredImageInput")->store("productFeaturedImage", "public");
+        $imgPath = explode("/", $path)[1];
 
         $product->productImage()->create([
-            // "imagePath" => $path
+            "imagePath" => $imgPath,
+            "featured" => "yes"
         ]);
 
-        // return redirect()->route("admin.index");
+        foreach ($request->file("imageGallery") as $img) {
+            $path = $img->store("productImageGallery", "public");
+            $imgPath = explode("/", $path)[1];
+
+            $product->productImage()->create([
+                "imagePath" => $imgPath,
+                "featured" => "no"
+            ]);
+        }
+
+        return redirect()->route("admin.index");
     }
 }

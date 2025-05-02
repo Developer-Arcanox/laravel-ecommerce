@@ -9,8 +9,13 @@ class Product extends Model
 {
     protected $fillable = ["name", "description", "category", "status", "price", "original_price", "stock_quantity"];
 
-    public function productimage()
+    public function productImage()
     {
         return $this->hasMany(ProductImage::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
     }
 }

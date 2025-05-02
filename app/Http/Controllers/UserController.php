@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,9 +12,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        Auth::logout();
-        
-        return view("welcome");
+        // Auth::logout();
+
+        $products = Product::all();
+
+        return view("welcome", compact("products"));
     }
 
     public function showRegisterForm()
@@ -41,20 +44,22 @@ class UserController extends Controller
         return view("login");
     }
 
-    public function login (Request $request) {
-        if(Auth::attempt(["email" => $request->email, "password"=> $request->password])) {
+    public function login(Request $request)
+    {
+        if (Auth::attempt(["email" => $request->email, "password" => $request->password])) {
             return redirect()->route("user.home");
-        }
-        else {
+        } else {
             return redirect()->route("login");
         }
     }
 
-    public function user_dashboard () {
+    public function user_dashboard()
+    {
         return "User Account";
     }
 
-    public function cartIndex() {
+    public function cartIndex()
+    {
         return view("cart");
     }
 }

@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/product/addProduct.css') }}">
 
     <!-- Main Content -->
-    <form action="{{ route('product.add.submit') }}" method="post" id="addProductForm">
+    <form action="{{ route('product.add.submit') }}" method="post" id="addProductForm" enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid py-4">
@@ -86,10 +86,10 @@
                                                 <label for="productCategory" class="form-label">Category</label>
                                                 <select class="form-select" name="productCategory" id="productCategory">
                                                     <option selected disabled>Select category</option>
-                                                    <option>Electronics</option>
-                                                    <option>Fashion</option>
-                                                    <option>Home & Garden</option>
-                                                    <option>Sports & Outdoors</option>
+                                                    @foreach ($category as $product_category)
+                                                        <option value="{{ $product_category->name }}">
+                                                            {{ $product_category->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -146,8 +146,8 @@
                                             <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
                                             <h5>Upload Featured Image</h5>
                                             <p class="text-muted small">Drag & drop image here or click to browse</p>
-                                            <input type="file" name="img[]" id="featuredImageInput"
-                                                class="">
+                                            <input type="file" name="featuredImageInput" id="featuredImageInput"
+                                                class="d-none">
                                         </div>
                                         <div class="image-preview-container d-flex flex-wrap" id="featuredImagePreview">
                                         </div>
@@ -187,7 +187,7 @@
                                     <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
                                     <h5>Upload Product Images</h5>
                                     <p class="text-muted small">Drag & drop images here or click to browse</p>
-                                    <input type="file" name="galleryInput[]" id="galleryInput" class="d-none"
+                                    <input type="file" name="imageGallery[]" id="galleryInput" class="d-none"
                                         multiple>
                                 </div>
                                 <div class="image-preview-container d-flex flex-wrap" id="galleryPreview">
