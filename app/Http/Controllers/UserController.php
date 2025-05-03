@@ -70,6 +70,8 @@ class UserController extends Controller
 
     public function category()
     {
-        return view("category");
+        $products = Product::all();
+
+        return view("category", compact("products"));
     }
 }

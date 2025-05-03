@@ -1,0 +1,116 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a0ca3;
+    --accent-color: #f72585;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-text);
+}
+
+.payment-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.payment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.payment-card.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.payment-header {
+    border-bottom: 1px solid #eee;
+    padding: 1.25rem 1.5rem;
+}
+
+.payment-option {
+    padding: 1.5rem;
+    cursor: pointer;
+}
+
+.payment-icon {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(67, 97, 238, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
+
+.payment-method-icon {
+    width: 40px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+.product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.summary-card {
+    position: sticky;
+    top: 20px;
+}
+
+.divider {
+    border-top: 1px dashed #dee2e6;
+    margin: 1.5rem 0;
+}
+
+.security-badge {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.card-input {
+    position: relative;
+}
+
+.card-input .card-types {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}

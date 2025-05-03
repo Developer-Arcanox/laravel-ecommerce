@@ -19,7 +19,7 @@ class AdminAuth
         if (Auth::check() && Auth::user()->role == "admin") {
             return $next($request);
         } else {
-            return redirect()->route("user.home");
+            return redirect()->route("login");
         }
     }
 }

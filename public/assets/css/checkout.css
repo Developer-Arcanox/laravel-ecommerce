@@ -1,0 +1,133 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a0ca3;
+    --accent-color: #f72585;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-text);
+}
+
+.checkout-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.checkout-header {
+    border-bottom: 1px solid #eee;
+    padding: 1.25rem 1.5rem;
+}
+
+.checkout-step {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-step:last-child {
+    margin-bottom: 0;
+}
+
+.checkout-step-number {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.checkout-step.active .checkout-step-number {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.checkout-step.completed .checkout-step-number {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.checkout-step.completed .checkout-step-number:after {
+    content: "\F26E";
+    font-family: bootstrap-icons;
+    font-size: 0.75rem;
+}
+
+.payment-method {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payment-method:hover {
+    border-color: var(--primary-color);
+}
+
+.payment-method.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.payment-method .form-check-input {
+    margin-top: 0.3rem;
+}
+
+.product-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.summary-card {
+    position: sticky;
+    top: 20px;
+}
+
+.divider {
+    border-top: 1px dashed #dee2e6;
+    margin: 1.5rem 0;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--primary-color);
+}
+
+.nav-pills .nav-link {
+    color: var(--dark-text);
+}

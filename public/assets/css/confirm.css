@@ -1,0 +1,136 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a0ca3;
+    --accent-color: #f72585;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-text);
+}
+
+.confirmation-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.confirmation-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.confirmation-icon {
+    font-size: 4rem;
+    color: #4bb543;
+    margin-bottom: 1rem;
+}
+
+.product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.summary-card {
+    position: sticky;
+    top: 20px;
+}
+
+.divider {
+    border-top: 1px dashed #dee2e6;
+    margin: 1.5rem 0;
+}
+
+.tracking-progress {
+    position: relative;
+    padding-left: 45px;
+}
+
+.tracking-progress:before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e9ecef;
+}
+
+.tracking-step {
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.tracking-step:last-child {
+    padding-bottom: 0;
+}
+
+.tracking-step:before {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #adb5bd;
+    z-index: 1;
+}
+
+.tracking-step.active:before {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.2);
+}
+
+.tracking-step.completed:before {
+    background-color: var(--primary-color);
+}
+
+.tracking-step.completed:before {
+    content: "\F26E";
+    font-family: bootstrap-icons;
+    color: white;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-number {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.recommendation-card {
+    transition: transform 0.3s ease;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+}
