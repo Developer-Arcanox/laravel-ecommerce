@@ -19,6 +19,8 @@ Route::controller(UserController::class)->group(function () {
             Route::get("/dashboard", "user_dashboard")->name("user.dashboard");
         });
     });
+    Route::get("/about", "about")->name("user.about");
+    Route::get("/category", "category")->name("user.category");
 });
 
 Route::controller(AdminController::class)->prefix("/admin")->group(function () {

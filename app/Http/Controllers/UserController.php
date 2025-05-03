@@ -62,4 +62,14 @@ class UserController extends Controller
     {
         return view("cart");
     }
+
+    public function about()
+    {
+        return view("about");
+    }
+
+    public function category()
+    {
+        return view("category");
+    }
 }
